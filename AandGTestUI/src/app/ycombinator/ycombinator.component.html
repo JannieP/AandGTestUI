@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="starter-template">
+  <h4>{{formTitle}}</h4>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="ycombinator_search_querystring">Search <span class="label-note">*</span></label>
+        <input type class="form-control"
+               (keyup)="searchYcombinator($event)"
+               name="queryString"
+               autocomplete="false"
+               id="ycombinator_search_querystring">
+        <span class="fa fa-search input-icon"></span>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="col-md-12">
+
+      <table class="table table-bordered table-striped table-hover table-sm" width="100%">
+        <thead>
+        <tr>
+          <th width="15%">Date</th>
+          <th>Author</th>
+          <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let resultHit of newsSearchResults" style="padding-bottom: 0px;">
+          <td>
+            {{resultHit.created_at | date: 'dd-MMM-yyyy'}}
+          </td>
+          <td>
+            {{resultHit.author}}
+          </td>
+          <td>
+            <a target="_self" href="javascript:void(0);" (click)="openLinkInNewPage(resultHit)" >{{resultHit.title}}</a>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <pagination style="display:inline-block;float:right;padding-right:10px;" [(ngModel)]="currentPage" [totalItems]="results.nbHits" [maxSize]="10" [itemsPerPage]="results.hitsPerPage" [boundaryLinks]="true" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (numPages)="switchNumPages($event)" (pageChanged)="searchChangePage($event)"></pagination>
+
+    </div>
+  </div>
+  </div>
+</div>
+
