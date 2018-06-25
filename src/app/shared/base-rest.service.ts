@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export abstract class BaseRestService {
 
-    private static baseServiceUrl = "http://hn.algolia.com/api/v1";
+    private static baseServiceUrl = "https://hn.algolia.com/api/v1";
 
     constructor(private _http: HttpClient) {
     }
