@@ -56,7 +56,7 @@ export class YcombinatorComponent implements OnInit {
   }
 
   openLinkInNewPage(hit:Hit){
-    window.open(hit.url, "_blank");
+    window.open(hit.url ? hit.url : hit.story_url, "_blank");
   }
 
   switchNumPages ($event: number) {

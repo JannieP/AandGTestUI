@@ -36,7 +36,7 @@
             {{resultHit.author}}
           </td>
           <td>
-            <a target="_self" href="javascript:void(0);" (click)="openLinkInNewPage(resultHit)" >{{resultHit.title}}</a>
+            <a target="_self" href="javascript:void(0);" (click)="openLinkInNewPage(resultHit)" >{{resultHit.title ? resultHit.title : resultHit.story_title}}</a>
           </td>
         </tr>
 

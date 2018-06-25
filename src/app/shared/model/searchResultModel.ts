@@ -41,6 +41,8 @@ declare module Ycombinator {
     author: string;
     points: number;
     story_text?: string;
+    story_title?: string;
+    story_url?: string;
     comment_text?: string;
     _tags: string[];
     num_comments: number;
